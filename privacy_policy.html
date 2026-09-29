@@ -22,11 +22,30 @@
             color: #007AFF;
             margin-top: 30px;
         }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 10px 0;
+            font-size: 0.95em;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th { background: #f8f9fa; }
         .last-updated {
             background: #f8f9fa;
             padding: 10px;
             border-radius: 5px;
             margin-bottom: 20px;
+        }
+        .highlight {
+            background: #fff8e1;
+            padding: 10px 15px;
+            border-left: 4px solid #FF9500;
+            border-radius: 5px;
         }
         .contact {
             background: #e3f2fd;
@@ -34,200 +53,210 @@
             border-radius: 5px;
             margin-top: 20px;
         }
+        .lang-switch { text-align: right; }
+        @media (prefers-color-scheme: dark) {
+            body { background: #1c1c1e; color: #e5e5ea; }
+            .last-updated, th { background: #2c2c2e; }
+            .highlight { background: #3a3220; }
+            .contact { background: #1f2d3d; }
+            th, td { border-color: #3a3a3c; }
+            a { color: #64a8ff; }
+        }
     </style>
 </head>
 <body>
+    <p class="lang-switch"><a href="#en">English version below ↓</a></p>
+
     <h1>Politique de confidentialité - eInventory 2024</h1>
-    
+
     <div class="last-updated">
-        <strong>Dernière mise à jour :</strong> [14/08/2025]
+        <strong>Dernière mise à jour :</strong> 29 septembre 2026 (version 1.99 de l'application)
     </div>
-    
-    <p>Cette politique de confidentialité décrit comment eInventory 2024 ("nous", "notre", ou "l'application") collecte, utilise et protège vos informations personnelles.</p>
-    
-    <h2>1. Informations que nous collectons</h2>
-    
-    <h3>1.1 Données fournies directement par l'utilisateur</h3>
+
+    <p>Cette politique décrit comment l'application eInventory 2024 (« l'application », « nous ») collecte, utilise, partage et protège vos données. L'application est éditée par Thierry Decock, développeur indépendant, responsable du traitement.</p>
+
+    <div class="highlight">
+        <strong>En bref :</strong> votre inventaire reste sur votre appareil et dans votre iCloud personnel. Le seul cas où des données de votre inventaire quittent votre appareil vers un tiers est l'<strong>analyse par intelligence artificielle</strong>, qui est facultative et n'a lieu qu'après votre autorisation explicite. Nous ne vendons aucune donnée et n'affichons aucune publicité.
+    </div>
+
+    <h2>1. Données que vous saisissez</h2>
     <ul>
-        <li>Informations d'inventaire que vous saisissez (noms d'objets, descriptions, catégories)</li>
-        <li>Photos que vous prenez ou sélectionnez depuis votre galerie</li>
-        <li>Documents que vous scannez ou importez</li>
-        <li>Dessins et annotations que vous créez</li>
+        <li>Informations d'inventaire : noms d'objets, marques, codes-barres, descriptions, catégories, sous-catégories, lieux, boîtes, histoires</li>
+        <li>Photos que vous prenez ou importez, documents scannés ou importés, dessins et annotations</li>
+        <li>Localisation d'un objet, uniquement si vous utilisez cette fonctionnalité et l'autorisez</li>
     </ul>
-    
-    <h3>1.2 Données collectées automatiquement</h3>
+    <p>Ces données sont stockées <strong>localement sur votre appareil</strong> et, si vous l'activez, dans <strong>votre compte iCloud personnel</strong> (CloudKit). Nous n'y avons pas accès.</p>
+
+    <h2>2. Analyse par intelligence artificielle (facultative)</h2>
+    <p>L'application peut identifier un objet à partir de photos grâce à un service d'IA fourni par <strong>OpenAI</strong>. Cette fonctionnalité est optionnelle : vous pouvez toujours remplir vos objets à la main.</p>
+
+    <h3>2.1 Consentement</h3>
+    <p>Avant la première analyse, l'application vous explique quelles données sont envoyées et à qui, et vous demande votre autorisation. <strong>Rien n'est envoyé sans votre accord.</strong> Vous pouvez retirer cette autorisation à tout moment dans l'onglet « Autre » &gt; réglages IA (« Autoriser l'envoi de données à OpenAI »).</p>
+
+    <h3>2.2 Données envoyées lors d'une analyse</h3>
     <ul>
-        <li><strong>Localisation (optionnelle) :</strong> Si vous l'autorisez, nous pouvons accéder à votre localisation approximative pour géolocaliser vos objets</li>
-        <li><strong>Photos et caméra :</strong> Accès à votre appareil photo pour prendre des photos d'objets et à votre galerie pour sauvegarder les images</li>
+        <li>La ou les photos que vous choisissez d'analyser</li>
+        <li>Les informations déjà saisies pour l'objet (nom, marque, code-barres, description)</li>
+        <li>Les noms de vos catégories et sous-catégories (pour proposer un classement)</li>
     </ul>
-    
-    <h2>2. Comment nous utilisons vos informations</h2>
-    
-    <p>Nous utilisons vos informations uniquement pour :</p>
+    <p>Aucune autre donnée de votre inventaire, ni votre localisation, ni votre identité ne sont envoyées.</p>
+
+    <h3>2.3 Circuit des données</h3>
+    <p>Les données transitent de façon chiffrée (HTTPS) par notre serveur intermédiaire, hébergé par <strong>Cloudflare</strong>, puis sont transmises à <strong>OpenAI</strong> (États-Unis), qui renvoie le résultat de l'analyse. Notre serveur <strong>ne conserve ni les photos ni leur contenu</strong> : il se contente de les relayer.</p>
+    <p>OpenAI traite ces données via son API. Selon ses conditions, les données envoyées par l'API <strong>ne sont pas utilisées pour entraîner ses modèles</strong> et peuvent être conservées jusqu'à 30 jours à des fins de détection d'abus, avant suppression. Voir la <a href="https://openai.com/policies/privacy-policy/">politique de confidentialité d'OpenAI</a> et ses <a href="https://openai.com/enterprise-privacy/">engagements pour l'API</a>.</p>
+    <p>Le transfert vers les États-Unis est encadré par les garanties prévues par le RGPD (clauses contractuelles types et/ou cadre de protection des données UE–États-Unis).</p>
+
+    <h3>2.4 Données techniques conservées par notre serveur</h3>
+    <p>Pour sécuriser le service et appliquer le quota d'analyses, notre serveur conserve :</p>
+    <table>
+        <tr><th>Donnée</th><th>Pourquoi</th></tr>
+        <tr><td>Un identifiant technique d'installation généré par Apple App Attest (et la clé publique associée)</td><td>Vérifier que la requête provient bien d'une copie authentique de l'application</td></tr>
+        <tr><td>Le compteur d'analyses sur une période glissante de 28 jours et les crédits achetés</td><td>Appliquer le quota gratuit, l'abonnement et les packs de crédits</td></tr>
+        <tr><td>Un journal d'usage par analyse : date, nombre d'images, crédits utilisés, nombre de « tokens » et coût estimé</td><td>Suivi des coûts et prévention des abus</td></tr>
+        <tr><td>Pour les abonnés et acheteurs : l'identifiant de transaction Apple</td><td>Rattacher le quota à l'abonnement et éviter qu'un achat soit compté deux fois</td></tr>
+        <tr><td>Pour les testeurs invités : le code testeur (uniquement sous forme d'empreinte chiffrée) et un libellé</td><td>Accorder un accès de test</td></tr>
+    </table>
+    <p>Ces données ne contiennent ni vos photos, ni le contenu de votre inventaire, ni votre nom, ni votre adresse e-mail. Elles sont conservées tant que vous utilisez l'analyse IA et au maximum 12 mois après votre dernière analyse, puis supprimées. Cloudflare peut en outre traiter l'adresse IP de connexion pour acheminer la requête et protéger le service (voir la <a href="https://www.cloudflare.com/privacypolicy/">politique de confidentialité de Cloudflare</a>).</p>
+
+    <h2>3. Achats intégrés (abonnement et crédits IA)</h2>
+    <p>Les paiements sont entièrement gérés par Apple via l'App Store. <strong>Nous ne recevons jamais vos coordonnées bancaires, votre nom ni votre identifiant Apple.</strong> Notre serveur reçoit uniquement une preuve d'achat signée par Apple (identifiant de transaction, produit, date d'expiration) afin d'attribuer vos analyses. Vous gérez ou résiliez votre abonnement dans Réglages &gt; [votre nom] &gt; Abonnements.</p>
+
+    <h2>4. Permissions de l'application</h2>
     <ul>
-        <li>Permettre le fonctionnement de l'application d'inventaire</li>
-        <li>Synchroniser vos données entre vos appareils via iCloud</li>
-        <li>Sauvegarder et restaurer vos données d'inventaire</li>
-        <li>Améliorer les fonctionnalités de l'application</li>
+        <li><strong>Appareil photo :</strong> photographier vos objets et scanner des documents ou codes-barres.</li>
+        <li><strong>Photothèque :</strong> importer des photos ou enregistrer celles prises dans l'application.</li>
+        <li><strong>Localisation (facultative) :</strong> associer un lieu à un objet, uniquement lorsque vous utilisez cette fonction. Elle n'est jamais envoyée à notre serveur ni à OpenAI.</li>
     </ul>
-    
-    <h2>3. Stockage et sécurité des données</h2>
-    
-    <h3>3.1 Stockage local</h3>
-    <p>Toutes vos données d'inventaire sont principalement stockées localement sur votre appareil iOS.</p>
-    
-    <h3>3.2 Synchronisation iCloud</h3>
-    <p>Si vous activez la synchronisation iCloud :</p>
+
+    <h2>5. Partage des données</h2>
+    <p>Nous ne vendons, ne louons et n'échangeons aucune donnée. Vos données ne sont transmises qu'à :</p>
     <ul>
-        <li>Vos données sont stockées dans votre compte iCloud personnel</li>
-        <li>Les données sont chiffrées en transit et au repos</li>
-        <li>Seuls vous et les appareils connectés à votre compte iCloud peuvent y accéder</li>
-        <li>Apple gère la sécurité de ces données selon sa propre politique de confidentialité</li>
+        <li><strong>Apple</strong> : synchronisation iCloud (si activée), achats intégrés, vérification App Attest</li>
+        <li><strong>Cloudflare</strong> : hébergement de notre serveur intermédiaire IA</li>
+        <li><strong>OpenAI</strong> : analyse IA, uniquement avec votre autorisation</li>
     </ul>
-    
-    <h3>3.3 Sécurité</h3>
-    <p>Nous mettons en œuvre des mesures de sécurité appropriées pour protéger vos informations contre l'accès non autorisé, la modification, la divulgation ou la destruction.</p>
-    
-    <h2>4. Partage des informations</h2>
-    
-    <p><strong>eInventory 2024 ne partage, ne vend, ni ne loue vos informations personnelles à des tiers.</strong></p>
-    
-    <p>Vos données ne sont transmises qu'à :</p>
+    <p>L'application ne contient ni publicité, ni outil de suivi publicitaire, ni outil d'analyse d'audience tiers.</p>
+
+    <h2>6. Vos droits et le contrôle de vos données</h2>
     <ul>
-        <li>Votre compte iCloud personnel (si vous activez la synchronisation)</li>
-        <li>Aucun serveur tiers ou service externe</li>
+        <li>Modifier ou supprimer un objet, ou réinitialiser toute la base depuis les réglages de l'application</li>
+        <li>Retirer votre autorisation d'envoi à OpenAI à tout moment (onglet « Autre » &gt; réglages IA)</li>
+        <li>Désactiver la synchronisation iCloud dans les réglages iOS ; désinstaller l'application supprime les données locales</li>
     </ul>
-    
-    <h2>5. Permissions de l'application</h2>
-    
-    <h3>5.1 Appareil photo</h3>
-    <p><strong>Pourquoi :</strong> Pour vous permettre de prendre des photos de vos objets d'inventaire.</p>
-    <p><strong>Données collectées :</strong> Images que vous choisissez de capturer.</p>
-    
-    <h3>5.2 Galerie photo</h3>
-    <p><strong>Pourquoi :</strong> Pour sauvegarder les photos prises dans l'application dans votre galerie.</p>
-    <p><strong>Données collectées :</strong> Aucune - nous ne faisons que sauvegarder vos propres photos.</p>
-    
-    <h3>5.3 Localisation</h3>
-    <p><strong>Pourquoi :</strong> Pour vous permettre d'associer une localisation géographique à vos objets (optionnel).</p>
-    <p><strong>Données collectées :</strong> Coordonnées GPS approximatives uniquement quand vous utilisez cette fonctionnalité.</p>
-    
-    <h2>6. Contrôle de vos données</h2>
-    
-    <h3>6.1 Accès et modification</h3>
-    <p>Vous avez un contrôle total sur vos données d'inventaire via l'interface de l'application.</p>
-    
-    <h3>6.2 Suppression</h3>
-    <p>Vous pouvez à tout moment :</p>
-    <ul>
-        <li>Supprimer des éléments individuels de votre inventaire</li>
-        <li>Réinitialiser complètement votre base de données via les paramètres de l'application</li>
-        <li>Désinstaller l'application pour supprimer toutes les données locales</li>
-        <li>Désactiver la synchronisation iCloud dans les réglages iOS</li>
-    </ul>
-    
-    <h2>7. Données des mineurs</h2>
-    
-    <p>eInventory 2024 ne collecte pas sciemment d'informations personnelles auprès d'enfants de moins de 13 ans. L'application est conçue pour être utilisée par des personnes de tout âge sous supervision appropriée.</p>
-    
-    <h2>8. Modifications de cette politique</h2>
-    
-    <p>Nous pouvons mettre à jour cette politique de confidentialité occasionnellement. Nous vous informerons de tout changement en publiant la nouvelle politique dans l'application et en mettant à jour la date de "dernière mise à jour" en haut de ce document.</p>
-    
-    <h2>9. Conformité légale</h2>
-    
-    <p>Cette application et sa gestion des données sont conçues pour être conformes :</p>
-    <ul>
-        <li>Au Règlement général sur la protection des données (RGPD) de l'UE</li>
-        <li>Aux lois sur la confidentialité applicables</li>
-        <li>Aux directives de l'App Store d'Apple</li>
-    </ul>
-    
+    <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité. Pour les données techniques conservées par notre serveur, écrivez-nous (section 10) : nous y répondrons sous un mois. Vous pouvez aussi saisir la <a href="https://www.cnil.fr/fr/plaintes">CNIL</a>.</p>
+    <p><strong>Bases légales :</strong> exécution du service que vous utilisez (inventaire, synchronisation, achats), votre consentement (analyse IA), notre intérêt légitime (sécurité du service et prévention des abus).</p>
+
+    <h2>7. Sécurité</h2>
+    <p>Les échanges avec notre serveur sont chiffrés (HTTPS). La clé d'accès à OpenAI est stockée uniquement sur le serveur, jamais dans l'application, et chaque requête est vérifiée par Apple App Attest.</p>
+
+    <h2>8. Enfants</h2>
+    <p>L'application ne collecte pas sciemment de données personnelles d'enfants de moins de 13 ans (15 ans en France pour le consentement au traitement). L'analyse IA ne devrait être activée par un mineur qu'avec l'accord d'un parent.</p>
+
+    <h2>9. Modifications</h2>
+    <p>Nous pouvons modifier cette politique, notamment lors de l'ajout de fonctionnalités. La date en haut de page est alors mise à jour ; en cas de changement important concernant le partage de vos données, votre consentement vous sera redemandé dans l'application.</p>
+
     <div class="contact">
         <h2>10. Nous contacter</h2>
-        <p>Si vous avez des questions concernant cette politique de confidentialité ou l'utilisation de vos données, veuillez nous contacter :</p>
-        <p><strong>Email :</strong> [thierry.Decock@gmail.com]</p>
-        <p><strong>Développeur :</strong> [DECOCK Thierry]</p>
-        
-        <p><em>Note : Remplacez les informations entre crochets par vos informations réelles avant de publier cette politique.</em></p>
+        <p>Pour toute question ou demande concernant vos données :</p>
+        <p><strong>Responsable du traitement :</strong> Thierry Decock</p>
+        <p><strong>E-mail :</strong> <a href="mailto:thierry.decock@gmail.com">thierry.decock@gmail.com</a></p>
     </div>
-    
-    <hr>
-    
+
+    <hr id="en">
+
     <h1>Privacy Policy - eInventory 2024 (English)</h1>
-    
+
     <div class="last-updated">
-        <strong>Last updated:</strong> [08/14/2025]
+        <strong>Last updated:</strong> September 29, 2026 (app version 1.99)
     </div>
-    
-    <p>This Privacy Policy describes how eInventory 2024 ("we", "our", or "the app") collects, uses, and protects your personal information.</p>
-    
-    <h2>1. Information We Collect</h2>
-    
-    <h3>1.1 Information You Provide</h3>
+
+    <p>This policy describes how the eInventory 2024 app ("the app", "we") collects, uses, shares and protects your data. The app is published by Thierry Decock, independent developer and data controller.</p>
+
+    <div class="highlight">
+        <strong>In short:</strong> your inventory stays on your device and in your personal iCloud. The only case where inventory data leaves your device for a third party is the <strong>AI analysis</strong>, which is optional and only happens after your explicit permission. We sell no data and show no ads.
+    </div>
+
+    <h2>1. Data you enter</h2>
     <ul>
-        <li>Inventory information you enter (item names, descriptions, categories)</li>
-        <li>Photos you take or select from your gallery</li>
-        <li>Documents you scan or import</li>
-        <li>Drawings and annotations you create</li>
+        <li>Inventory information: item names, brands, barcodes, descriptions, categories, subcategories, places, boxes, stories</li>
+        <li>Photos you take or import, scanned or imported documents, drawings and annotations</li>
+        <li>An item's location, only if you use that feature and allow it</li>
     </ul>
-    
-    <h3>1.2 Information Collected Automatically</h3>
+    <p>This data is stored <strong>locally on your device</strong> and, if you enable it, in <strong>your personal iCloud account</strong> (CloudKit). We have no access to it.</p>
+
+    <h2>2. AI analysis (optional)</h2>
+    <p>The app can identify an item from photos using an AI service provided by <strong>OpenAI</strong>. This feature is optional: you can always fill in items by hand.</p>
+
+    <h3>2.1 Consent</h3>
+    <p>Before the first analysis, the app explains what data is sent and to whom, and asks for your permission. <strong>Nothing is sent without your consent.</strong> You can withdraw it at any time in the "Other" tab &gt; AI settings ("Allow sending data to OpenAI").</p>
+
+    <h3>2.2 Data sent during an analysis</h3>
     <ul>
-        <li><strong>Location (optional):</strong> If you grant permission, we may access your approximate location to geolocate your items</li>
-        <li><strong>Photos and Camera:</strong> Access to your camera to photograph items and to your photo library to save images</li>
+        <li>The photo(s) you choose to analyze</li>
+        <li>Details already entered for the item (name, brand, barcode, description)</li>
+        <li>The names of your categories and subcategories (to suggest a classification)</li>
     </ul>
-    
-    <h2>2. How We Use Your Information</h2>
-    
-    <p>We use your information solely to:</p>
+    <p>No other inventory data, no location and no identity information is sent.</p>
+
+    <h3>2.3 Data flow</h3>
+    <p>Data travels encrypted (HTTPS) through our relay server, hosted by <strong>Cloudflare</strong>, and is forwarded to <strong>OpenAI</strong> (United States), which returns the analysis result. Our server <strong>keeps neither the photos nor their content</strong>; it only relays them.</p>
+    <p>OpenAI processes this data through its API. Under its terms, data sent through the API is <strong>not used to train its models</strong> and may be retained for up to 30 days for abuse monitoring before deletion. See <a href="https://openai.com/policies/privacy-policy/">OpenAI's privacy policy</a> and its <a href="https://openai.com/enterprise-privacy/">API commitments</a>.</p>
+    <p>Transfers to the United States rely on the safeguards provided by the GDPR (standard contractual clauses and/or the EU–U.S. Data Privacy Framework).</p>
+
+    <h3>2.4 Technical data kept by our server</h3>
+    <p>To secure the service and enforce the analysis quota, our server keeps:</p>
+    <table>
+        <tr><th>Data</th><th>Purpose</th></tr>
+        <tr><td>A technical installation identifier generated by Apple App Attest (and its public key)</td><td>Verify that requests come from a genuine copy of the app</td></tr>
+        <tr><td>The analysis counter over a rolling 28-day period and purchased credits</td><td>Enforce the free quota, subscription and credit packs</td></tr>
+        <tr><td>A usage log per analysis: date, number of images, credits used, token counts and estimated cost</td><td>Cost tracking and abuse prevention</td></tr>
+        <tr><td>For subscribers and buyers: the Apple transaction identifier</td><td>Link the quota to the subscription and prevent a purchase from being counted twice</td></tr>
+        <tr><td>For invited testers: the tester code (only as a cryptographic hash) and a label</td><td>Grant test access</td></tr>
+    </table>
+    <p>This data contains none of your photos, inventory content, name or email address. It is kept while you use AI analysis and for at most 12 months after your last analysis, then deleted. Cloudflare may also process the connecting IP address to route the request and protect the service (see <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare's privacy policy</a>).</p>
+
+    <h2>3. In-app purchases (AI subscription and credits)</h2>
+    <p>Payments are handled entirely by Apple through the App Store. <strong>We never receive your payment details, your name or your Apple ID.</strong> Our server only receives an Apple-signed proof of purchase (transaction identifier, product, expiry date) to allocate your analyses. You can manage or cancel your subscription in Settings &gt; [your name] &gt; Subscriptions.</p>
+
+    <h2>4. App permissions</h2>
     <ul>
-        <li>Enable the inventory application functionality</li>
-        <li>Sync your data across your devices via iCloud</li>
-        <li>Backup and restore your inventory data</li>
-        <li>Improve the application features</li>
+        <li><strong>Camera:</strong> photograph your items and scan documents or barcodes.</li>
+        <li><strong>Photo library:</strong> import photos or save those taken in the app.</li>
+        <li><strong>Location (optional):</strong> attach a place to an item, only when you use this feature. It is never sent to our server or to OpenAI.</li>
     </ul>
-    
-    <h2>3. Data Storage and Security</h2>
-    
-    <h3>3.1 Local Storage</h3>
-    <p>All your inventory data is primarily stored locally on your iOS device.</p>
-    
-    <h3>3.2 iCloud Synchronization</h3>
-    <p>If you enable iCloud sync:</p>
+
+    <h2>5. Data sharing</h2>
+    <p>We do not sell, rent or trade any data. Your data is only transmitted to:</p>
     <ul>
-        <li>Your data is stored in your personal iCloud account</li>
-        <li>Data is encrypted in transit and at rest</li>
-        <li>Only you and devices connected to your iCloud account can access it</li>
-        <li>Apple manages the security of this data according to their privacy policy</li>
+        <li><strong>Apple</strong>: iCloud sync (if enabled), in-app purchases, App Attest verification</li>
+        <li><strong>Cloudflare</strong>: hosting of our AI relay server</li>
+        <li><strong>OpenAI</strong>: AI analysis, only with your permission</li>
     </ul>
-    
-    <h2>4. Information Sharing</h2>
-    
-    <p><strong>eInventory 2024 does not share, sell, or rent your personal information to third parties.</strong></p>
-    
-    <p>Your data is only transmitted to:</p>
+    <p>The app contains no advertising, no ad tracking and no third-party analytics.</p>
+
+    <h2>6. Your rights and control over your data</h2>
     <ul>
-        <li>Your personal iCloud account (if you enable sync)</li>
-        <li>No third-party servers or external services</li>
+        <li>Edit or delete any item, or reset the whole database from the app settings</li>
+        <li>Withdraw your permission to send data to OpenAI at any time ("Other" tab &gt; AI settings)</li>
+        <li>Turn off iCloud sync in iOS Settings; uninstalling the app deletes local data</li>
     </ul>
-    
-    <h2>5. App Permissions</h2>
-    
-    <h3>5.1 Camera</h3>
-    <p><strong>Why:</strong> To allow you to photograph your inventory items.</p>
-    <p><strong>Data collected:</strong> Images you choose to capture.</p>
-    
-    <h3>5.2 Photo Library</h3>
-    <p><strong>Why:</strong> To save photos taken in the app to your gallery.</p>
-    <p><strong>Data collected:</strong> None - we only save your own photos.</p>
-    
-    <h3>5.3 Location</h3>
-    <p><strong>Why:</strong> To allow you to associate geographic location with your items (optional).</p>
-    <p><strong>Data collected:</strong> Approximate GPS coordinates only when you use this feature.</p>
-    
-    <h2>6. Contact Us</h2>
-    <p>If you have questions about this Privacy Policy, please contact us at:</p>
-    <p><strong>Email:</strong> [thierry.decock@gmail.com]</p>
+    <p>Under the GDPR you have the right of access, rectification, erasure, restriction, objection and portability. For technical data kept by our server, email us (section 10); we will reply within one month. You may also lodge a complaint with your data protection authority (in France, the <a href="https://www.cnil.fr/fr/plaintes">CNIL</a>).</p>
+    <p><strong>Legal bases:</strong> performance of the service you use (inventory, sync, purchases), your consent (AI analysis), our legitimate interest (service security and abuse prevention).</p>
+
+    <h2>7. Security</h2>
+    <p>Communication with our server is encrypted (HTTPS). The OpenAI access key is stored only on the server, never in the app, and every request is verified with Apple App Attest.</p>
+
+    <h2>8. Children</h2>
+    <p>The app does not knowingly collect personal data from children under 13. A minor should only enable AI analysis with a parent's approval.</p>
+
+    <h2>9. Changes</h2>
+    <p>We may update this policy, in particular when features are added. The date at the top is then updated; if a significant change affects how your data is shared, the app will ask for your consent again.</p>
+
+    <div class="contact">
+        <h2>10. Contact us</h2>
+        <p>For any question or request about your data:</p>
+        <p><strong>Data controller:</strong> Thierry Decock</p>
+        <p><strong>Email:</strong> <a href="mailto:thierry.decock@gmail.com">thierry.decock@gmail.com</a></p>
+    </div>
 </body>
 </html>
